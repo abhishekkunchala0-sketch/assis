@@ -1,0 +1,143 @@
+{
+  "tables": {
+    "customers_tbl": {
+      "description": "Customer profiles and contact information",
+      "columns": [
+        {"name": "customer_id", "type": "INTEGER", "primary_key": true},
+        {"name": "name", "type": "TEXT", "nullable": false},
+        {"name": "email", "type": "TEXT", "nullable": false, "unique": true},
+        {"name": "phone", "type": "TEXT"},
+        {"name": "region", "type": "TEXT"},
+        {"name": "signup_date", "type": "DATE"},
+        {"name": "is_active", "type": "BOOLEAN", "default": true}
+      ]
+    },
+    "tickets_tbl": {
+      "description": "Support tickets from customers",
+      "columns": [
+        {"name": "ticket_id", "type": "INTEGER", "primary_key": true},
+        {"name": "customer_id", "type": "INTEGER", "foreign_key": "customers_tbl.customer_id"},
+        {"name": "subject", "type": "TEXT", "nullable": false},
+        {"name": "description", "type": "TEXT"},
+        {"name": "status", "type": "TEXT", "values": ["open", "pending", "resolved", "closed"]},
+        {"name": "priority", "type": "TEXT", "values": ["low", "medium", "high", "critical"]},
+        {"name": "category", "type": "TEXT"},
+        {"name": "created_at", "type": "DATETIME"},
+        {"name": "updated_at", "type": "DATETIME"},
+        {"name": "resolved_at", "type": "DATETIME"}
+      ]
+    },
+    "agents_tbl": {
+      "description": "Support agents information",
+      "columns": [
+        {"name": "agent_id", "type": "INTEGER", "primary_key": true},
+        {"name": "name", "type": "TEXT", "nullable": false},
+        {"name": "email", "type": "TEXT", "unique": true},
+        {"name": "department", "type": "TEXT"},
+        {"name": "role", "type": "TEXT"},
+        {"name": "hire_date", "type": "DATE"},
+        {"name": "is_active", "type": "BOOLEAN", "default": true}
+      ]
+    },
+    "ticket_assignments_tbl": {
+      "description": "Ticket assignments to agents",
+      "columns": [
+        {"name": "assignment_id", "type": "INTEGER", "primary_key": true},
+        {"name": "ticket_id", "type": "INTEGER", "foreign_key": "tickets_tbl.ticket_id"},
+        {"name": "agent_id", "type": "INTEGER", "foreign_key": "agents_tbl.agent_id"},
+        {"name": "assigned_at", "type": "DATETIME"},
+        {"name": "resolved_at", "type": "DATETIME"}
+      ]
+    },
+    "ticket_comments_tbl": {
+      "description": "Communication logs between agents and customers",
+      "columns": [
+        {"name": "comment_id", "type": "INTEGER", "primary_key": true},
+        {"name": "ticket_id", "type": "INTEGER", "foreign_key": "tickets_tbl.ticket_id"},
+        {"name": "author_type", "type": "TEXT", "values": ["agent", "customer"]},
+        {"name": "author_id", "type": "INTEGER"},
+        {"name": "comment", "type": "TEXT"},
+        {"name": "created_at", "type": "DATETIME"}
+      ]
+    },
+    "products_tbl": {
+      "description": "Product catalog",
+      "columns": [
+        {"name": "product_id", "type": "INTEGER", "primary_key": true},
+        {"name": "name", "type": "TEXT", "nullable": false},
+        {"name": "category", "type": "TEXT"},
+        {"name": "price", "type": "DECIMAL(10,2)"},
+        {"name": "is_active", "type": "BOOLEAN", "default": true}
+      ]
+    },
+    "ticket_products_tbl": {
+      "description": "Many-to-many relationship between tickets and products",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "primary_key": true},
+        {"name": "ticket_id", "type": "INTEGER", "foreign_key": "tickets_tbl.ticket_id"},
+        {"name": "product_id", "type": "INTEGER", "foreign_key": "products_tbl.product_id"}
+      ]
+    },
+    "satisfaction_surveys_tbl": {
+      "description": "Customer satisfaction survey results",
+      "columns": [
+        {"name": "survey_id", "type": "INTEGER", "primary_key": true},
+        {"name": "ticket_id", "type": "INTEGER", "foreign_key": "tickets_tbl.ticket_id"},
+        {"name": "customer_id", "type": "INTEGER", "foreign_key": "customers_tbl.customer_id"},
+        {"name": "rating", "type": "INTEGER", "values": [1, 2, 3, 4, 5]},
+        {"name": "feedback", "type": "TEXT"},
+        {"name": "created_at", "type": "DATETIME"}
+      ]
+    }
+  },
+  "scenarios": [
+    {
+      "id": 1,
+      "question": "How many open tickets are there?",
+      "expected_tables": ["tickets_tbl"],
+      "expected_sql_pattern": "SELECT COUNT(*) FROM tickets_tbl WHERE status = 'open'"
+    },
+    {
+      "id": 2,
+      "question": "List all high priority tickets from the last week",
+      "expected_tables": ["tickets_tbl"],
+      "expected_sql_pattern": "SELECT * FROM tickets_tbl WHERE priority = 'high' AND created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY)"
+    },
+    {
+      "id": 3,
+      "question": "Which customers have the most unresolved tickets?",
+      "expected_tables": ["customers_tbl", "tickets_tbl"],
+      "expected_sql_pattern": "SELECT customer_id, COUNT(*) as ticket_count FROM tickets_tbl WHERE status != 'resolved' GROUP BY customer_id ORDER BY ticket_count DESC"
+    },
+    {
+      "id": 4,
+      "question": "Show me the average resolution time by agent",
+      "expected_tables": ["agents_tbl", "ticket_assignments_tbl", "tickets_tbl"],
+      "expected_sql_pattern": "SELECT agent_id, AVG(TIMESTAMPDIFF(HOUR, assigned_at, resolved_at)) as avg_resolution_hours FROM ticket_assignments_tbl GROUP BY agent_id"
+    },
+    {
+      "id": 5,
+      "question": "Find the most common ticket categories",
+      "expected_tables": ["tickets_tbl"],
+      "expected_sql_pattern": "SELECT category, COUNT(*) as count FROM tickets_tbl GROUP BY category ORDER BY count DESC"
+    },
+    {
+      "id": 6,
+      "question": "What is the customer satisfaction rating for resolved tickets?",
+      "expected_tables": ["tickets_tbl", "satisfaction_surveys_tbl"],
+      "expected_sql_pattern": "SELECT AVG(rating) as avg_rating FROM satisfaction_surveys_tbl WHERE ticket_id IN (SELECT ticket_id FROM tickets_tbl WHERE status = 'resolved')"
+    },
+    {
+      "id": 7,
+      "question": "List agents with their department and active ticket count",
+      "expected_tables": ["agents_tbl", "ticket_assignments_tbl", "tickets_tbl"],
+      "expected_sql_pattern": "SELECT a.agent_id, a.name, a.department, COUNT(t.ticket_id) as active_tickets FROM agents_tbl a LEFT JOIN ticket_assignments_tbl ta ON a.agent_id = ta.agent_id LEFT JOIN tickets_tbl t ON ta.ticket_id = t.ticket_id AND t.status != 'resolved' GROUP BY a.agent_id"
+    },
+    {
+      "id": 8,
+      "question": "Show tickets created this month by region",
+      "expected_tables": ["tickets_tbl", "customers_tbl"],
+      "expected_sql_pattern": "SELECT c.region, COUNT(t.ticket_id) as ticket_count FROM tickets_tbl t JOIN customers_tbl c ON t.customer_id = c.customer_id WHERE t.created_at >= DATE_TRUNC('month', CURRENT_DATE) GROUP BY c.region"
+    }
+  ]
+}

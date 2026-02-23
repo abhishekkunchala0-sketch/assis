@@ -1,0 +1,62 @@
+# Configuration for Agentic AI SQL Query Generator
+
+app:
+  name: "Agentic SQL Generator"
+  version: "1.0.0"
+  environment: "development"  # development, production
+
+# Database configuration
+database:
+  type: "sqlite"
+  path: "data/customer_service.db"
+  sample_data_path: "data/sample_schema.json"
+
+# LLM Configuration
+llm:
+  provider: "huggingface"  # ollama, openai, openrouter, huggingface
+  model: "google/flan-t5-small"
+  temperature: 0.1
+  max_tokens: 512
+  # For HuggingFace: set HF_TOKEN in .env
+  # HF_TOKEN: "${HF_TOKEN}"
+
+
+# Embedding Configuration
+embeddings:
+  model: "sentence-transformers/all-MiniLM-L6-v2"
+  device: "cpu"
+  batch_size: 32
+
+# Retrieval Configuration
+retrieval:
+  top_k: 5
+  similarity_threshold: 0.5
+  hybrid_search: true  # Combine vector + keyword
+
+# Agent Configuration
+agent:
+  max_retries: 2
+  confidence_threshold: 0.7
+  timeout_seconds: 60
+  enable_self_correction: true
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 1
+  reload: true
+  cors_origins:
+    - "*"
+
+# Observability
+observability:
+  log_level: "INFO"
+  enable_metrics: true
+  enable_tracing: false
+  metrics_port: 9090
+
+# Performance targets
+performance:
+  retrieval_latency_target_ms: 500
+  total_latency_target_ms: 20000

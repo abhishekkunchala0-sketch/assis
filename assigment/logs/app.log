@@ -1,0 +1,257 @@
+2026-02-20 09:41:08 | INFO     | src.api.main:lifespan - Starting application
+2026-02-20 09:41:08 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-20 09:41:08 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-20 09:41:08 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-20 09:41:22 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 14.31s
+2026-02-20 09:41:23 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: [1mOllama[0m
+Params: {'model': 'llama3', 'format': None, 'options': {'mirostat': None, 'mirostat_eta': None, 'mirostat_tau': None, 'num_ctx': None, 'num_gpu': None, 'num_thread': None, 'num_predict': None, 'repeat_last_n': None, 'repeat_penalty': None, 'temperature': 0.1, 'stop': None, 'tfs_z': None, 'top_k': None, 'top_p': None}, 'system': None, 'template': None, 'keep_alive': None, 'raw': None}
+2026-02-20 09:41:23 | INFO     | src.agent.embeddings:_build_index - Building index for 8 tables
+2026-02-20 09:41:24 | INFO     | src.agent.embeddings:_build_index - Index built in 0.84s
+2026-02-20 09:41:24 | INFO     | src.agent.sql_agent:create_agent - SQL Agent created successfully
+2026-02-20 09:41:24 | INFO     | src.api.main:lifespan - Application started successfully
+2026-02-23 13:11:01 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:11:01 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:11:01 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:11:01 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:11:07 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 5.85s
+2026-02-23 13:11:07 | WARNING  | src.agent.sql_generator:create_llm - OpenAI not available, using MockLLM
+2026-02-23 13:11:07 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:31:38 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:31:38 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:31:38 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:31:38 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:31:44 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 6.80s
+2026-02-23 13:31:45 | INFO     | src.agent.sql_generator:create_llm - Creating HuggingFace LLM: microsoft/Phi-3-mini-4k-instruct
+2026-02-23 13:31:45 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: [1mHuggingFaceEndpoint[0m
+Params: {'endpoint_url': None, 'task': None, 'provider': None, 'model_kwargs': {}}
+2026-02-23 13:31:47 | INFO     | src.agent.embeddings:_build_index - Building index for 8 tables
+2026-02-23 13:31:49 | INFO     | src.agent.embeddings:_build_index - Index built in 1.70s
+2026-02-23 13:31:49 | INFO     | src.agent.sql_agent:create_agent - SQL Agent created successfully
+2026-02-23 13:31:49 | INFO     | src.api.main:lifespan - Application started successfully
+2026-02-23 13:36:58 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:36:58 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:36:58 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:36:58 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:37:05 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 6.31s
+2026-02-23 13:37:05 | INFO     | src.agent.sql_generator:create_llm - Creating HuggingFace LLM: microsoft/Phi-3-mini-4k-instruct
+2026-02-23 13:37:05 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: [1mHuggingFaceEndpoint[0m
+Params: {'endpoint_url': None, 'task': None, 'provider': None, 'model_kwargs': {}}
+2026-02-23 13:37:05 | INFO     | src.agent.embeddings:_build_index - Building index for 8 tables
+2026-02-23 13:37:06 | INFO     | src.agent.embeddings:_build_index - Index built in 0.58s
+2026-02-23 13:37:06 | INFO     | src.agent.sql_agent:create_agent - SQL Agent created successfully
+2026-02-23 13:37:06 | INFO     | src.api.main:lifespan - Application started successfully
+2026-02-23 13:37:26 | INFO     | src.agent.sql_agent:process - Processing question: How many open tickets are there?
+2026-02-23 13:37:26 | INFO     | src.agent.sql_agent:process - Retrieved tables: ['ticket_products_tbl', 'tickets_tbl', 'ticket_assignments_tbl', 'satisfaction_surveys_tbl', 'ticket_comments_tbl'] in 0.03s
+2026-02-23 13:37:26 | INFO     | src.agent.sql_generator:generate - Generating SQL for question: How many open tickets are there?
+2026-02-23 13:37:27 | ERROR    | src.agent.sql_generator:generate - SQL generation failed: 
+2026-02-23 13:37:27 | INFO     | src.agent.sql_agent:_generate_with_self_correction - Self-correction attempt 2
+2026-02-23 13:37:27 | INFO     | src.agent.sql_generator:generate - Generating SQL for question: How many open tickets are there?
+2026-02-23 13:37:27 | ERROR    | src.agent.sql_generator:generate - SQL generation failed: 
+2026-02-23 13:37:27 | INFO     | src.agent.sql_agent:_generate_with_self_correction - Self-correction attempt 3
+2026-02-23 13:37:27 | INFO     | src.agent.sql_generator:generate - Generating SQL for question: How many open tickets are there?
+2026-02-23 13:37:27 | ERROR    | src.agent.sql_generator:generate - SQL generation failed: 
+2026-02-23 13:37:27 | INFO     | src.agent.sql_agent:process - Processed question in 1.43s (retrieval: 0.03s, generation: 1.40s)
+2026-02-23 13:37:45 | INFO     | src.api.main:lifespan - Shutting down application
+2026-02-23 13:38:14 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:38:14 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:38:14 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:38:14 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:38:20 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 6.80s
+2026-02-23 13:38:21 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:38:21 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:39:58 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:39:58 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:39:58 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:39:58 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:40:05 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 6.45s
+2026-02-23 13:40:05 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:40:05 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:41:16 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:41:16 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:41:16 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:41:16 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:41:19 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:41:19 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:41:19 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:41:19 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:41:27 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 11.35s
+2026-02-23 13:41:27 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:41:27 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:41:28 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 8.83s
+2026-02-23 13:41:28 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:41:28 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:41:34 | INFO     | src.api.main:lifespan - Shutting down application
+2026-02-23 13:42:16 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:42:16 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:42:16 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:42:16 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:42:18 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:42:18 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:42:18 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:42:18 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:42:22 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 6.26s
+2026-02-23 13:42:23 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:42:23 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:42:23 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 5.83s
+2026-02-23 13:42:24 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:42:24 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:43:51 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:43:51 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:43:51 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:43:51 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:43:54 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:43:54 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:43:54 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:43:54 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:43:54 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:43:54 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:43:54 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:43:54 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:43:57 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 6.15s
+2026-02-23 13:44:01 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:44:01 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:44:03 | INFO     | src.agent.embeddings:_build_index - Building index for 8 tables
+2026-02-23 13:44:05 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 11.24s
+2026-02-23 13:44:05 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 11.52s
+2026-02-23 13:44:06 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:44:06 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:44:06 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:44:06 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:44:06 | INFO     | src.agent.embeddings:_build_index - Building index for 8 tables
+2026-02-23 13:44:06 | INFO     | src.agent.embeddings:_build_index - Building index for 8 tables
+2026-02-23 13:44:07 | INFO     | src.agent.embeddings:_build_index - Index built in 3.87s
+2026-02-23 13:44:07 | INFO     | src.agent.sql_agent:create_agent - SQL Agent created successfully
+2026-02-23 13:44:07 | INFO     | src.api.main:lifespan - Application started successfully
+2026-02-23 13:44:07 | INFO     | src.agent.embeddings:_build_index - Index built in 1.74s
+2026-02-23 13:44:07 | INFO     | src.agent.sql_agent:create_agent - SQL Agent created successfully
+2026-02-23 13:44:07 | INFO     | src.api.main:lifespan - Application started successfully
+2026-02-23 13:44:08 | INFO     | src.agent.embeddings:_build_index - Index built in 1.93s
+2026-02-23 13:44:08 | INFO     | src.agent.sql_agent:create_agent - SQL Agent created successfully
+2026-02-23 13:44:08 | INFO     | src.api.main:lifespan - Application started successfully
+2026-02-23 13:45:08 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:45:08 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:45:08 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:45:08 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:45:08 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:45:08 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:45:08 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:45:08 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:45:09 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:45:09 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:45:09 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:45:09 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:45:19 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 11.71s
+2026-02-23 13:45:20 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:45:20 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:45:20 | INFO     | src.agent.embeddings:_build_index - Building index for 8 tables
+2026-02-23 13:45:21 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 12.46s
+2026-02-23 13:45:21 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 12.36s
+2026-02-23 13:45:21 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:45:21 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:45:21 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:45:21 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:45:21 | INFO     | src.agent.embeddings:_build_index - Building index for 8 tables
+2026-02-23 13:45:21 | INFO     | src.agent.embeddings:_build_index - Building index for 8 tables
+2026-02-23 13:45:24 | INFO     | src.agent.embeddings:_build_index - Index built in 3.85s
+2026-02-23 13:45:24 | INFO     | src.agent.sql_agent:create_agent - SQL Agent created successfully
+2026-02-23 13:45:24 | INFO     | src.api.main:lifespan - Application started successfully
+2026-02-23 13:45:25 | INFO     | src.agent.embeddings:_build_index - Index built in 3.41s
+2026-02-23 13:45:25 | INFO     | src.agent.sql_agent:create_agent - SQL Agent created successfully
+2026-02-23 13:45:25 | INFO     | src.api.main:lifespan - Application started successfully
+2026-02-23 13:45:25 | INFO     | src.agent.embeddings:_build_index - Index built in 3.56s
+2026-02-23 13:45:25 | INFO     | src.agent.sql_agent:create_agent - SQL Agent created successfully
+2026-02-23 13:45:25 | INFO     | src.api.main:lifespan - Application started successfully
+2026-02-23 13:45:55 | INFO     | src.api.main:lifespan - Shutting down application
+2026-02-23 13:46:34 | INFO     | src.api.main:lifespan - Shutting down application
+2026-02-23 13:47:48 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:47:48 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:47:48 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:47:48 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:47:54 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 5.70s
+2026-02-23 13:47:54 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:47:54 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:47:54 | INFO     | src.agent.embeddings:_build_index - Building index for 8 tables
+2026-02-23 13:47:55 | INFO     | src.agent.embeddings:_build_index - Index built in 0.68s
+2026-02-23 13:47:55 | INFO     | src.agent.sql_agent:create_agent - SQL Agent created successfully
+2026-02-23 13:47:55 | INFO     | src.api.main:lifespan - Application started successfully
+2026-02-23 13:47:56 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:47:56 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:47:56 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:47:56 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:48:02 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 5.75s
+2026-02-23 13:48:02 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:48:02 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:48:02 | INFO     | src.agent.embeddings:_build_index - Building index for 8 tables
+2026-02-23 13:48:04 | INFO     | src.agent.embeddings:_build_index - Index built in 1.90s
+2026-02-23 13:48:04 | INFO     | src.agent.sql_agent:create_agent - SQL Agent created successfully
+2026-02-23 13:48:04 | INFO     | src.api.main:lifespan - Application started successfully
+2026-02-23 13:48:29 | INFO     | src.agent.sql_agent:process - Processing question: How many open tickets are there?
+2026-02-23 13:48:29 | INFO     | src.agent.sql_agent:process - Retrieved tables: ['ticket_products_tbl', 'tickets_tbl', 'ticket_assignments_tbl', 'satisfaction_surveys_tbl', 'ticket_comments_tbl'] in 0.04s
+2026-02-23 13:48:29 | INFO     | src.agent.sql_generator:generate - Generating SQL for question: How many open tickets are there?
+2026-02-23 13:48:29 | INFO     | src.agent.sql_generator:generate - SQL generated in 0.00s: SELECT COUNT(*) as count FROM tickets_tbl WHERE status = 'open'
+2026-02-23 13:48:29 | WARNING  | src.agent.sql_generator:generate - SQL validation failed: Invalid columns in table tickets_tbl
+2026-02-23 13:48:29 | INFO     | src.agent.sql_agent:process - Processed question in 0.04s (retrieval: 0.04s, generation: 0.00s)
+2026-02-23 13:48:45 | INFO     | src.agent.sql_agent:process - Processing question: List all customers
+2026-02-23 13:48:45 | INFO     | src.agent.sql_agent:process - Retrieved tables: ['customers_tbl', 'tickets_tbl', 'agents_tbl', 'ticket_comments_tbl', 'satisfaction_surveys_tbl'] in 0.02s
+2026-02-23 13:48:45 | INFO     | src.agent.sql_generator:generate - Generating SQL for question: List all customers
+2026-02-23 13:48:45 | INFO     | src.agent.sql_generator:generate - SQL generated in 0.00s: SELECT * FROM tickets_tbl LIMIT 10
+2026-02-23 13:48:45 | INFO     | src.agent.sql_agent:process - Processed question in 0.02s (retrieval: 0.02s, generation: 0.00s)
+2026-02-23 13:49:11 | INFO     | src.api.main:lifespan - Shutting down application
+2026-02-23 13:49:38 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:49:38 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:49:38 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:49:38 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:49:44 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 5.82s
+2026-02-23 13:49:44 | WARNING  | src.agent.sql_generator:create_llm - No HuggingFace token found, using MockLLM
+2026-02-23 13:49:44 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: MockLLM()
+2026-02-23 13:49:44 | INFO     | src.agent.embeddings:_build_index - Building index for 8 tables
+2026-02-23 13:49:45 | INFO     | src.agent.embeddings:_build_index - Index built in 0.56s
+2026-02-23 13:49:45 | INFO     | src.agent.sql_agent:create_agent - SQL Agent created successfully
+2026-02-23 13:49:45 | INFO     | src.api.main:lifespan - Application started successfully
+2026-02-23 13:54:32 | INFO     | src.api.main:lifespan - Shutting down application
+2026-02-23 13:55:26 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 13:55:26 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 13:55:26 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 13:55:26 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 13:55:31 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 5.50s
+2026-02-23 13:55:31 | INFO     | src.agent.sql_generator:create_llm - Creating HuggingFace LLM: microsoft/Phi-3-mini-4k-instruct
+2026-02-23 13:55:32 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: [1mHuggingFaceEndpoint[0m
+Params: {'endpoint_url': None, 'task': None, 'provider': None, 'model_kwargs': {}}
+2026-02-23 13:55:32 | INFO     | src.agent.embeddings:_build_index - Building index for 8 tables
+2026-02-23 13:55:33 | INFO     | src.agent.embeddings:_build_index - Index built in 1.18s
+2026-02-23 13:55:33 | INFO     | src.agent.sql_agent:create_agent - SQL Agent created successfully
+2026-02-23 13:55:33 | INFO     | src.api.main:lifespan - Application started successfully
+2026-02-23 14:07:08 | INFO     | src.api.main:lifespan - Starting application
+2026-02-23 14:07:08 | INFO     | src.agent.sql_agent:create_agent - Creating SQL Agent
+2026-02-23 14:07:08 | INFO     | src.agent.sql_agent:create_agent - Loaded 8 tables
+2026-02-23 14:07:08 | INFO     | src.agent.embeddings:_load_model - Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-02-23 14:07:15 | INFO     | src.agent.embeddings:_load_model - Embedding model loaded in 7.02s
+2026-02-23 14:07:16 | INFO     | src.agent.sql_generator:create_llm - Creating HuggingFace LLM: microsoft/Phi-3-mini-4k-instruct
+2026-02-23 14:07:16 | INFO     | src.agent.sql_agent:create_agent - LLM initialized: [1mHuggingFaceEndpoint[0m
+Params: {'endpoint_url': None, 'task': None, 'provider': None, 'model_kwargs': {}}
+2026-02-23 14:07:16 | INFO     | src.agent.embeddings:_build_index - Building index for 8 tables
+2026-02-23 14:07:17 | INFO     | src.agent.embeddings:_build_index - Index built in 0.49s
+2026-02-23 14:07:17 | INFO     | src.agent.sql_agent:create_agent - SQL Agent created successfully
+2026-02-23 14:07:17 | INFO     | src.api.main:lifespan - Application started successfully
+2026-02-23 14:07:43 | INFO     | src.agent.sql_agent:process - Processing question: How many open tickets are there?
+2026-02-23 14:07:43 | INFO     | src.agent.sql_agent:process - Retrieved tables: ['ticket_products_tbl', 'tickets_tbl', 'ticket_assignments_tbl', 'satisfaction_surveys_tbl', 'ticket_comments_tbl'] in 0.02s
+2026-02-23 14:07:43 | INFO     | src.agent.sql_generator:generate - Generating SQL for question: How many open tickets are there?
+2026-02-23 14:07:44 | ERROR    | src.agent.sql_generator:generate - SQL generation failed: 
+2026-02-23 14:07:44 | INFO     | src.agent.sql_agent:_generate_with_self_correction - Self-correction attempt 2
+2026-02-23 14:07:44 | INFO     | src.agent.sql_generator:generate - Generating SQL for question: How many open tickets are there?
+2026-02-23 14:07:44 | ERROR    | src.agent.sql_generator:generate - SQL generation failed: 
+2026-02-23 14:07:44 | INFO     | src.agent.sql_agent:_generate_with_self_correction - Self-correction attempt 3
+2026-02-23 14:07:44 | INFO     | src.agent.sql_generator:generate - Generating SQL for question: How many open tickets are there?
+2026-02-23 14:07:44 | ERROR    | src.agent.sql_generator:generate - SQL generation failed: 
+2026-02-23 14:07:44 | INFO     | src.agent.sql_agent:process - Processed question in 0.51s (retrieval: 0.02s, generation: 0.49s)
+2026-02-23 14:08:01 | INFO     | src.agent.sql_agent:process - Processing question: List all customers with tickets
+2026-02-23 14:08:01 | INFO     | src.agent.sql_agent:process - Retrieved tables: ['tickets_tbl'] in 0.02s
+2026-02-23 14:08:01 | INFO     | src.agent.sql_generator:generate - Generating SQL for question: List all customers with tickets
+2026-02-23 14:08:01 | ERROR    | src.agent.sql_generator:generate - SQL generation failed: 
+2026-02-23 14:08:01 | INFO     | src.agent.sql_agent:_generate_with_self_correction - Self-correction attempt 2
+2026-02-23 14:08:01 | INFO     | src.agent.sql_generator:generate - Generating SQL for question: List all customers with tickets
+2026-02-23 14:08:01 | ERROR    | src.agent.sql_generator:generate - SQL generation failed: 
+2026-02-23 14:08:01 | INFO     | src.agent.sql_agent:_generate_with_self_correction - Self-correction attempt 3
+2026-02-23 14:08:01 | INFO     | src.agent.sql_generator:generate - Generating SQL for question: List all customers with tickets
+2026-02-23 14:08:01 | ERROR    | src.agent.sql_generator:generate - SQL generation failed: 
+2026-02-23 14:08:01 | INFO     | src.agent.sql_agent:process - Processed question in 0.03s (retrieval: 0.02s, generation: 0.01s)
