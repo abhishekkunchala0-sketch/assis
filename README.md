@@ -1,6 +1,6 @@
 # Agentic SQL Query Generator
 
-A modular, self-correcting AI agent that generates SQL queries from natural language questions based on database schema. Built for the Senior Applied Scientist take-home assignment.
+A modular, self-correcting AI agent that generates SQL queries from natural language questions based on database schema. 
 
 ## Architecture Overview
 
