@@ -308,6 +308,4 @@ docker run -p 8000:8000 sql-agent
 
 MIT License
 
-## Contact
 
-For questions about this implementation, please refer to the assignment documentation.
